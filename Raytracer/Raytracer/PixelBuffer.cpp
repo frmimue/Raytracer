@@ -14,6 +14,15 @@ PixelBuffer::~PixelBuffer()
 	delete[] pixelBuffer;
 }
 
+void PixelBuffer::randomize(){
+	srand(time(NULL));
+	for (int i = 0; i < xSize*ySize; i++){
+		pixelBuffer[i].red = rand() % 255;
+		pixelBuffer[i].green = rand() % 255;
+		pixelBuffer[i].blue = rand() % 255;
+	}
+}
+
 
 void PixelBuffer::savePPM(char* file){
 	std::ofstream data;
