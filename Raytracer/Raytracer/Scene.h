@@ -4,6 +4,7 @@
 
 #include "Object.h"
 #include "Ray.h"
+#include "Color.h"
 
 class Scene
 {
@@ -12,6 +13,7 @@ private:
 public:
 	Scene();
 	~Scene();
-	void trace(Ray ray);
+	Color trace(Ray ray);
+	void add(Object *);
 };
 

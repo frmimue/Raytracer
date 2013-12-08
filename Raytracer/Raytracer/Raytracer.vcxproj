@@ -80,6 +80,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PixelBuffer.cpp" />
+    <ClCompile Include="PlaneObject.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Raytracer.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PixelBuffer.h" />
+    <ClInclude Include="PlaneObject.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SphereObject.h" />

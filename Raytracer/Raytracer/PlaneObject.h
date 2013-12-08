@@ -1,17 +1,15 @@
 #pragma once
-
 #include "Object.h"
-#include "Color.h"
-
-class SphereObject : public Object
+class PlaneObject :
+	public Object
 {
 private:
 	Vector3D position;
-	float radius;
+	Vector3D normal;
 	Color color;
 public:
-	SphereObject(Vector3D, float, Color);
-	~SphereObject();
+	PlaneObject(Vector3D, Vector3D, Color);
+	~PlaneObject();
 	float hitDistance(Ray);
 	Color getColor();
 };

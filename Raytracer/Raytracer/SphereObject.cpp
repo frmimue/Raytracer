@@ -19,3 +19,8 @@ float SphereObject::hitDistance(Ray ray){
 		return -1.0f;
 	return -tmp - root;
 }
+
+
+Color SphereObject::getColor(){
+	return this->color;
+}
