@@ -12,6 +12,6 @@ private:
 public:
 	Scene();
 	~Scene();
-	void trace(Ray *ray);
+	void trace(Ray ray);
 };
 

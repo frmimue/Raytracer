@@ -11,7 +11,7 @@ Object::~Object()
 }
 
 
-float Object::hitDistance(Ray *ray)
+float Object::hitDistance(Ray ray)
 {
-	return -1;
+	return -1.0f;
 }

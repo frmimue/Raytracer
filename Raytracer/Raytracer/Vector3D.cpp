@@ -21,6 +21,12 @@ Vector3D Vector3D::operator-(Vector3D const& b){
 }
 
 
+Vector3D Vector3D::operator!(){
+	float length = this->length();
+	return Vector3D(x/length,y/length,z/length);
+}
+
+
 float Vector3D::operator*(Vector3D const& b){
 	return x*b.x + y*b.y + z*b.z;
 }
@@ -30,6 +36,6 @@ Vector3D Vector3D::operator%(Vector3D const& b){
 }
 
 
-float Vector3D::square(){
+float Vector3D::length(){
 	return (*this)*(*this);
 }

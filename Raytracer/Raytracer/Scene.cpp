@@ -11,7 +11,7 @@ Scene::~Scene()
 }
 
 
-void Scene::trace(Ray *ray)
+void Scene::trace(Ray ray)
 {
 	for each (Object *object in Objects)
 	{

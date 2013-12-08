@@ -8,7 +8,7 @@
 
 class PixelBuffer
 {
-private:
+public:
 	Color*	pixelBuffer;
 	int		xSize;
 	int		ySize;

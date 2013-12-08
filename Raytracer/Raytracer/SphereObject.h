@@ -12,6 +12,6 @@ private:
 public:
 	SphereObject(Vector3D, float, Color);
 	~SphereObject();
-	float hitDistance(Ray*);
+	float hitDistance(Ray);
 };
 
