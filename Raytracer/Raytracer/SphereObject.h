@@ -5,7 +5,7 @@
 
 class SphereObject : public Object
 {
-private:
+public:
 	Vector3D position;
 	float radius;
 	Color color;

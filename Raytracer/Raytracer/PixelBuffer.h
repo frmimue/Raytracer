@@ -17,5 +17,6 @@ public:
 	~PixelBuffer();
 	void savePPM(char*);
 	void randomize();
+	void set(int, int, Color);
 };
 

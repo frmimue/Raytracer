@@ -7,6 +7,7 @@ public:
 	int blue;
 
 	Color();
+	Color(const Color&);
 	Color(int, int, int);
 	~Color();
 };

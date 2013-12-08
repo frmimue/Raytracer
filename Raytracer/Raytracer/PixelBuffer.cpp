@@ -33,3 +33,10 @@ void PixelBuffer::savePPM(char* file){
 	}
 	data.close();
 }
+
+
+void PixelBuffer::set(int x, int y, Color color){
+	pixelBuffer[x*ySize + y].red = color.red;
+	pixelBuffer[x*ySize + y].green = color.green;
+	pixelBuffer[x*ySize + y].blue = color.blue;
+}
