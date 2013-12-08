@@ -1,0 +1,17 @@
+#pragma once
+class Vector3D
+{
+private:
+	float x;
+	float y;
+	float z;
+public:
+	Vector3D(float, float, float);
+	~Vector3D();
+	Vector3D operator+(Vector3D const&);
+	Vector3D operator-(Vector3D const&);
+	Vector3D operator%(Vector3D const&);
+	float operator*(Vector3D const&);
+	float square();
+};
+
