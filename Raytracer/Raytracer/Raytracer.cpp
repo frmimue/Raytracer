@@ -54,7 +54,7 @@ int main(int argv, char** argc){
 	}
 	testBuffer2->savePPM("test2.ppm");
 
-	scene->addLight(new Light(Vector3D(3, 3, 0)));
+	scene->addLight(new Light(Vector3D(2, 2, 1)));
 
 	std::cout << std::endl << "Creating test3 PPM file: test3.ppm" << std::endl;
 

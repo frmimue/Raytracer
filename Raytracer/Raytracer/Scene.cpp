@@ -18,7 +18,7 @@ Color Scene::trace(Ray ray)
 	for each (Object *object in objects)
 	{
 		float distance = object->hitDistance(ray);
-		if (distance > 0.1f && distance < minDistance){
+		if (distance > 0.001f && distance < minDistance){
 			pObject = object;
 			minDistance = distance;
 		}
@@ -29,9 +29,19 @@ Color Scene::trace(Ray ray)
 	bool hit = false;
 	for each (Light *light in lights)
 	{
-		Ray lightRay = Ray::Ray(Vector3D(ray.position + ray.direction*minDistance), !Vector3D(light->position-(ray.position + ray.direction*minDistance)));
-		float f = (lightRay.direction*pObject->getNormal(lightRay.position));
-		return pObject->getColor()*f;
+		Ray lightRay = Ray::Ray(Vector3D(ray.position + ray.direction*minDistance), !Vector3D(light->position - (ray.position + ray.direction*minDistance)));
+		for each (Object *object in objects)
+		{
+			if (object->hitDistance(lightRay) > 0.001f && object->hitDistance(lightRay) < (light->position - (ray.position + ray.direction*minDistance)).length()){
+				hit = true;
+				break;
+			}
+		}
+		if (hit){
+			hit = false;
+			continue;
+		}
+		return pObject->getColor()*(lightRay.direction*pObject->getNormal(lightRay.position));
 	}
 	return Color(0, 0, 0);
 }
