@@ -11,6 +11,9 @@ public:
 	PlaneObject(Vector3D, Vector3D, Color);
 	~PlaneObject();
 	float hitDistance(Ray);
+	float hitDistance2(Ray);
 	Color getColor();
+	Vector3D getPosition();
+	Vector3D getNormal(Vector3D);
 };
 

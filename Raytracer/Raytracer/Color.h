@@ -10,5 +10,6 @@ public:
 	Color(const Color&);
 	Color(int, int, int);
 	~Color();
+	Color operator*(float const&);
 };
 

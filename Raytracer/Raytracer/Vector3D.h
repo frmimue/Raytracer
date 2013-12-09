@@ -13,6 +13,8 @@ public:
 	Vector3D operator%(Vector3D const&);
 	Vector3D operator!();
 	float operator*(Vector3D const&);
+	Vector3D operator*(float const&);
 	float length();
+	float square();
 };
 

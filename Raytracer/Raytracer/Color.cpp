@@ -24,3 +24,8 @@ Color::Color(int red, int green, int blue)
 Color::~Color()
 {
 }
+
+
+Color Color::operator*(float const &f){
+	return Color(red*f, green*f, blue*f);
+}
