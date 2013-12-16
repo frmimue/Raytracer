@@ -30,7 +30,7 @@ float SphereObject::hitDistance2(Ray ray){
 }
 
 
-Color SphereObject::getColor(){
+Color SphereObject::getColor(Vector3D point){
 	return this->color;
 }
 

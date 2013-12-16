@@ -15,24 +15,30 @@ Color Scene::trace(Ray ray)
 {
 	float minDistance = 1000000000;
 	Object *pObject = nullptr;
-	for each (Object *object in objects)
+	for (Object *object : objects)
 	{
 		float distance = object->hitDistance(ray);
-		if (distance > 0.001f && distance < minDistance){
+		if (distance > 0.00001f && distance < minDistance){
 			pObject = object;
 			minDistance = distance;
 		}
 	}
 	if (pObject == nullptr)
-		return Color(25, 25, 100);
+		return Color(125, 150, 255)*pow(1-ray.direction.z, 4);
+
+
+	Color lightColor = Color::Color(0, 0, 0);
 
 	bool hit = false;
-	for each (Light *light in lights)
+	for  (Light *light : lights)
 	{
 		Ray lightRay = Ray::Ray(Vector3D(ray.position + ray.direction*minDistance), !Vector3D(light->position - (ray.position + ray.direction*minDistance)));
-		for each (Object *object in objects)
+		
+		for (Object *object : objects)
 		{
-			if (object->hitDistance(lightRay) > 0.001f && object->hitDistance(lightRay) < (light->position - (ray.position + ray.direction*minDistance)).length()){
+			if (object == pObject)
+				break;
+			if (object->hitDistance(lightRay) > 0.00001f && object->hitDistance(lightRay) < (light->position - (ray.position + ray.direction*minDistance)).length()){
 				hit = true;
 				break;
 			}
@@ -41,9 +47,12 @@ Color Scene::trace(Ray ray)
 			hit = false;
 			continue;
 		}
-		return pObject->getColor()*(lightRay.direction*pObject->getNormal(lightRay.position));
+
+		int n = 128.0f;
+
+		lightColor = lightColor +  pObject->getColor(lightRay.position)*((lightRay.direction*pObject->getNormal(lightRay.position))) + Color(255, 255, 255)* pow((((-ray.direction + lightRay.direction) * pObject->getNormal(lightRay.position)) / ((-ray.direction + lightRay.direction).length())), n);
 	}
-	return Color(0, 0, 0);
+	return lightColor + pObject->getColor(ray.position + ray.direction*minDistance) * 0.2f;
 }
 
 

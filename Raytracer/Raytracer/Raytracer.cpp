@@ -8,68 +8,31 @@
 
 int main(int argv, char** argc){
 
-	int testX = 800, testY = 800;
+	int testX = 5000, testY = 5000;
 
-	Ray testRay = Ray::Ray(Vector3D(0, 0, 0), Vector3D(0, 1, 0));
-	SphereObject testSphere = SphereObject::SphereObject(Vector3D(0, 5, 0), 1.0, Color(255, 0, 0));
-	Camera testCamera = Camera::Camera(Vector3D(0, -5, 0), Vector3D(0, 1, 0), testX, testY);
+	Camera testCamera = Camera::Camera(Vector3D(0, -5, 1), Vector3D(0, 1, 0), testX, testY);
 
-	std::cout << testSphere.hitDistance(testRay) << std::endl << std::endl;
+	Scene *scene = new Scene();
+	SphereObject testSphere2 = SphereObject::SphereObject(Vector3D(1, 3, -0.3), 0.7, Color(255, 0, 0));
+	SphereObject testSphere3 = SphereObject::SphereObject(Vector3D(-1, 2, 0), 0.7, Color(0, 0, 255));
+	PlaneObject *testPlane = new PlaneObject(Vector3D(0, 0, -1), Vector3D(0, 0, 1), Color(0, 255,0), Color(255,255,255));
 
-	while (false){
-		int x, y;
-		std::cin >> x;
-		std::cin >> y;
-		std::cout << testSphere.hitDistance(testCamera.computeRay(x, y)) << std::endl;
-	}
+	scene->add(&testSphere2);
+	scene->add(&testSphere3);
+	scene->add(testPlane);
 
-	std::cout << std::endl << "Creating test PPM file: test.ppm" << std::endl;
+	scene->addLight(new Light(Vector3D(2, 1, 1)));
+	scene->addLight(new Light(Vector3D(-2, 1, 1)));
+
+	std::cout << std::endl << "Creating test3 PPM file: test3.ppm" << std::endl;
 
 	PixelBuffer* testBuffer = new PixelBuffer(testX, testY);
 	for (int i = 0; i < testY; i++){
 		for (int j = 0; j < testX; j++){
-			if (testSphere.hitDistance(testCamera.computeRay(j, i)) > 1)
-				testBuffer->pixelBuffer[i * testX + j] = testSphere.getColor();
+			testBuffer->pixelBuffer[i * testX + j] = scene->trace(testCamera.computeRay(j, i));
 		}
 	}
 	testBuffer->savePPM("test.ppm");
 
-	Scene *scene = new Scene();
-	SphereObject testSphere2 = SphereObject::SphereObject(Vector3D(1, 3, 0), 1.2, Color(255, 0, 0));
-	SphereObject testSphere3 = SphereObject::SphereObject(Vector3D(-1, 3, 0), 1.2, Color(0, 0, 255));
-	PlaneObject *testPlane = new PlaneObject(Vector3D(0, 0, -1), Vector3D(0, 0, 1), Color(0, 255,0));
-
-	//scene->add(&testSphere2);
-	//scene->add(&testSphere3);
-	scene->add(&testSphere);
-	scene->add(testPlane);
-
-	std::cout << std::endl << "Creating test2 PPM file: test2.ppm" << std::endl;
-
-	PixelBuffer* testBuffer2 = new PixelBuffer(testX, testY);
-	for (int i = 0; i < testY; i++){
-		for (int j = 0; j < testX; j++){
-			testBuffer2->pixelBuffer[i * testX + j] = scene->trace(testCamera.computeRay(j, i));
-		}
-	}
-	testBuffer2->savePPM("test2.ppm");
-
-	scene->addLight(new Light(Vector3D(2, 2, 1)));
-
-	std::cout << std::endl << "Creating test3 PPM file: test3.ppm" << std::endl;
-
-	PixelBuffer* testBuffer3 = new PixelBuffer(testX, testY);
-	for (int i = 0; i < testY; i++){
-		for (int j = 0; j < testX; j++){
-			testBuffer3->pixelBuffer[i * testX + j] = scene->trace(testCamera.computeRay(j, i));
-		}
-	}
-	testBuffer3->savePPM("test3.ppm");
-	
-	std::cout << std::endl << "Creating random PPM file: 123.ppm" << std::endl;
-
-	PixelBuffer* pixelBuffer = new PixelBuffer(1920, 1080);
-	pixelBuffer->randomize();
-	pixelBuffer->savePPM("123.ppm");
 	return 0;
 }

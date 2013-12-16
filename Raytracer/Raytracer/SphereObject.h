@@ -14,7 +14,7 @@ public:
 	~SphereObject();
 	float hitDistance(Ray);
 	float hitDistance2(Ray);
-	Color getColor();
+	Color getColor(Vector3D);
 	Vector3D getPosition();
 	Vector3D getNormal(Vector3D);
 };

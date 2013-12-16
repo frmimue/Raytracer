@@ -24,7 +24,12 @@ Vector3D Vector3D::operator-(Vector3D const& b){
 
 Vector3D Vector3D::operator!(){
 	float length = this->length();
-	return Vector3D(x/length,y/length,z/length);
+	return Vector3D(x / length, y / length, z / length);
+}
+
+
+Vector3D Vector3D::operator-(){
+	return Vector3D(-x, -y, -z);
 }
 
 

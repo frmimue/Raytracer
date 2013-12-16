@@ -1,7 +1,7 @@
 #include "PlaneObject.h"
+#include <math.h>
 
-
-PlaneObject::PlaneObject(Vector3D position, Vector3D normal, Color color) : position(position), normal(normal), color(color)
+PlaneObject::PlaneObject(Vector3D position, Vector3D normal, Color color1, Color color2) : position(position), normal(normal), color1(color1), color2(color2)
 {
 }
 
@@ -20,8 +20,8 @@ float PlaneObject::hitDistance2(Ray ray){
 }
 
 
-Color PlaneObject::getColor(){
-	return this->color;
+Color PlaneObject::getColor(Vector3D point){
+	return ((int)(ceil(point.x)+ceil(point.y))&1? color1 : color2);
 }
 
 

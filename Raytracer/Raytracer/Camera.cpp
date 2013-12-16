@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 
-Camera::Camera(Vector3D position, Vector3D direction, int width, int height) : position(position), direction(direction), width(width), height(height)
+Camera::Camera(Vector3D position, Vector3D direction, int width, int height) : position(position), direction(!direction), width(width), height(height)
 {
 }
 

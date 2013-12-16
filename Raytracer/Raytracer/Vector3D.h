@@ -1,7 +1,7 @@
 #pragma once
 class Vector3D
 {
-private:
+public:
 	float x;
 	float y;
 	float z;
@@ -12,6 +12,7 @@ public:
 	Vector3D operator-(Vector3D const&);
 	Vector3D operator%(Vector3D const&);
 	Vector3D operator!();
+	Vector3D operator-();
 	float operator*(Vector3D const&);
 	Vector3D operator*(float const&);
 	float length();
