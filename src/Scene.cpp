@@ -31,18 +31,19 @@ Color Scene::trace(Ray ray)
 }
 
 Color Scene::traceLight(Ray ray, Object* pObject, float minDistance){
-    	Color lightColor = Color(0, 0, 0);
+    Color lightColor = Color(0, 0, 0);
+    Ray lightRay = Ray(Vector3D(ray.position + ray.direction*minDistance), Vector3D(0,0,0));
 
 	bool hit = false;
 	for  (Light *light : lights)
 	{
-		Ray lightRay = Ray(Vector3D(ray.position + ray.direction*minDistance), !Vector3D(light->position - (ray.position + ray.direction*minDistance)));
+		lightRay.direction = !Vector3D(light->position - lightRay.position);
 
 		for (Object *object : objects)
 		{
 			if (object == pObject)
 				break;
-			if (object->hitDistance(lightRay) > 0.00001f && object->hitDistance(lightRay) < (light->position - (ray.position + ray.direction*minDistance)).length()){
+			if (object->hitDistance(lightRay) > 0.00001f && object->hitDistance(lightRay) < (light->position - lightRay.position).length()){
 				hit = true;
 				break;
 			}

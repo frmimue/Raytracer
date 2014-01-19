@@ -11,10 +11,10 @@ SphereObject::~SphereObject(){
 float SphereObject::hitDistance(Ray ray){
 
 	float tmp = ray.direction * (ray.position - position);
-	float root = (float)sqrt(tmp*tmp - (ray.position - position).square() + radius*radius);
+	float root = tmp*tmp - (ray.position - position).square() + radius*radius;
 	if (root < 0)
 		return -1.0f;
-	return -tmp - root;
+	return -tmp - (float)sqrt(root);
 }
 
 

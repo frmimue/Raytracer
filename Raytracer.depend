@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1390141432 source:c:\users\frank\documents\source\raytracer\src\raytracer.cpp
+1390171681 source:c:\users\frank\documents\source\raytracer\src\raytracer.cpp
 	<iostream>
 	"PixelBuffer.h"
 	"SphereObject.h"
@@ -13,7 +13,7 @@
 1390136646 c:\users\frank\documents\source\raytracer\src\light.h
 	"Vector3D.h"
 
-1390141407 source:c:\users\frank\documents\source\raytracer\src\scene.cpp
+1390172762 source:c:\users\frank\documents\source\raytracer\src\scene.cpp
 	"Scene.h"
 	<math.h>
 
@@ -73,7 +73,7 @@
 	"Vector3D.h"
 	"Color.h"
 
-1390139648 source:c:\users\frank\documents\source\raytracer\src\sphereobject.cpp
+1390154335 source:c:\users\frank\documents\source\raytracer\src\sphereobject.cpp
 	"SphereObject.h"
 	<math.h>
 

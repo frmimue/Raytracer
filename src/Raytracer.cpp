@@ -8,7 +8,7 @@
 
 int main(int argv, char** argc){
 
-	int testX = 5000, testY = 5000;
+	int testX = 1600, testY = 1200;
 
 	Camera testCamera = Camera(Vector3D(0, -5, 1), Vector3D(0, 1, 0), testX, testY);
 
