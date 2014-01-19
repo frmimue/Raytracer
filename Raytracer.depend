@@ -1,0 +1,83 @@
+# depslib dependency file v1.0
+1390141432 source:c:\users\frank\documents\source\raytracer\src\raytracer.cpp
+	<iostream>
+	"PixelBuffer.h"
+	"SphereObject.h"
+	"Camera.h"
+	"Scene.h"
+	"PlaneObject.h"
+
+1390136670 source:c:\users\frank\documents\source\raytracer\src\light.cpp
+	"Light.h"
+
+1390136646 c:\users\frank\documents\source\raytracer\src\light.h
+	"Vector3D.h"
+
+1390141407 source:c:\users\frank\documents\source\raytracer\src\scene.cpp
+	"Scene.h"
+	<math.h>
+
+1390140762 c:\users\frank\documents\source\raytracer\src\scene.h
+	<list>
+	"Object.h"
+	"Light.h"
+	"Ray.h"
+	"Color.h"
+
+1390138059 c:\users\frank\documents\source\raytracer\src\object.h
+	"Ray.h"
+	"Color.h"
+
+1390132711 source:c:\users\frank\documents\source\raytracer\src\vector3d.cpp
+	<math.h>
+	"Vector3D.h"
+
+1390132729 c:\users\frank\documents\source\raytracer\src\vector3d.h
+
+1390132840 c:\users\frank\documents\source\raytracer\src\ray.h
+	"Vector3D.h"
+
+1390132781 source:c:\users\frank\documents\source\raytracer\src\ray.cpp
+	"Ray.h"
+
+1390137695 source:c:\users\frank\documents\source\raytracer\src\camera.cpp
+	"Camera.h"
+
+1390136389 c:\users\frank\documents\source\raytracer\src\camera.h
+	"Ray.h"
+
+1390136552 source:c:\users\frank\documents\source\raytracer\src\color.cpp
+	"Color.h"
+
+1390136528 c:\users\frank\documents\source\raytracer\src\color.h
+	<fstream>
+
+1390139830 source:c:\users\frank\documents\source\raytracer\src\pixelbuffer.cpp
+	"PixelBuffer.h"
+	<math.h>
+
+1390139809 c:\users\frank\documents\source\raytracer\src\pixelbuffer.h
+	<fstream>
+	<math.h>
+	<time.h>
+	"Color.h"
+
+1390138029 source:c:\users\frank\documents\source\raytracer\src\planeobject.cpp
+	"PlaneObject.h"
+	<math.h>
+	"Vector3D.h"
+	"Object.h"
+
+1390137135 c:\users\frank\documents\source\raytracer\src\planeobject.h
+	"Object.h"
+	"Vector3D.h"
+	"Color.h"
+
+1390139648 source:c:\users\frank\documents\source\raytracer\src\sphereobject.cpp
+	"SphereObject.h"
+	<math.h>
+
+1390139565 c:\users\frank\documents\source\raytracer\src\sphereobject.h
+	"Object.h"
+	"Color.h"
+

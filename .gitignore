@@ -22,3 +22,6 @@
 
 # CodeBlocks
 *.layout
+
+# Image files
+*.ppm

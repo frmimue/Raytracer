@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="src" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -21,7 +22,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add directory="src" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +33,26 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="src/Camera.cpp" />
+		<Unit filename="src/Camera.h" />
+		<Unit filename="src/Color.cpp" />
+		<Unit filename="src/Color.h" />
+		<Unit filename="src/Light.cpp" />
+		<Unit filename="src/Light.h" />
+		<Unit filename="src/Object.h" />
+		<Unit filename="src/PixelBuffer.cpp" />
+		<Unit filename="src/PixelBuffer.h" />
+		<Unit filename="src/PlaneObject.cpp" />
+		<Unit filename="src/PlaneObject.h" />
+		<Unit filename="src/Ray.cpp" />
+		<Unit filename="src/Ray.h" />
 		<Unit filename="src/Raytracer.cpp" />
+		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/Scene.h" />
+		<Unit filename="src/SphereObject.cpp" />
+		<Unit filename="src/SphereObject.h" />
+		<Unit filename="src/Vector3D.cpp" />
+		<Unit filename="src/Vector3D.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
