@@ -6,16 +6,15 @@
 
 #include "Color.h"
 
-class PixelBuffer
-{
+class PixelBuffer {
 public:
-	Color*	pixelBuffer;
-	int		xSize;
-	int		ySize;
+    Color	*pixelBuffer;
+    int		xSize;
+    int		ySize;
 public:
-	PixelBuffer(int, int);
-	~PixelBuffer();
-	void savePPM(std::string);
-	void randomize();
-	void set(int, int, Color);
+    PixelBuffer(int, int);
+    ~PixelBuffer();
+    void savePPM(std::string);
+    void randomize();
+    void set(int, int, Color);
 };

@@ -2,32 +2,33 @@
 #include <math.h>
 
 
-SphereObject::SphereObject(Vector3D position, float radius, Color color) : position(position), radius(radius), color(color){
+SphereObject::SphereObject(Vector3D position, float radius, Color color) : position(position), radius(radius), color(color) {
 }
 
-SphereObject::~SphereObject(){
+SphereObject::~SphereObject() {
 }
 
-float SphereObject::hitDistance(Ray ray){
+float SphereObject::hitDistance(Ray ray) {
+    float tmp = ray.direction * (ray.position - position);
+    float root = tmp * tmp - (ray.position - position).square() + radius * radius;
 
-	float tmp = ray.direction * (ray.position - position);
-	float root = tmp*tmp - (ray.position - position).square() + radius*radius;
-	if (root < 0)
-		return -1.0f;
-	return -tmp - (float)sqrt(root);
-}
+    if(root < 0)
+        return -1.0f;
 
-
-Color SphereObject::getColor(Vector3D point){
-	return this->color;
+    return -tmp - sqrtf(root);
 }
 
 
-Vector3D SphereObject::getPosition(){
-	return this->position;
+Color SphereObject::getColor(Vector3D point) {
+    return this->color;
 }
 
 
-Vector3D SphereObject::getNormal(Vector3D point){
-	return !(point - position);
+Vector3D SphereObject::getPosition() {
+    return this->position;
+}
+
+
+Vector3D SphereObject::getNormal(Vector3D point) {
+    return !(point - position);
 }

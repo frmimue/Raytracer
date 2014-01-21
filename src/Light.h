@@ -2,10 +2,9 @@
 
 #include "Vector3D.h"
 
-class Light
-{
+class Light {
 public:
-        Vector3D position;
-        Light(Vector3D);
-        ~Light();
+    Vector3D position;
+    Light(Vector3D);
+    ~Light();
 };

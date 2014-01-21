@@ -7,8 +7,7 @@
 #include "Ray.h"
 #include "Color.h"
 
-class Scene
-{
+class Scene {
 private:
     std::list<Object *> objects;
     std::list<Light *> lights;
@@ -19,5 +18,5 @@ public:
     void add(Light *);
     Color trace(Ray);
 private:
-    Color traceLight(Ray, Object*, float);
+    Color traceLight(Ray, Object *, float);
 };

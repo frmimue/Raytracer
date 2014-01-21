@@ -2,20 +2,19 @@
 
 #include <fstream>
 
-class Color
-{
+class Color {
 private:
-	int red;
-	int green;
-	int blue;
+    int red;
+    int green;
+    int blue;
 public:
-	Color();
-	Color(const Color&);
-	Color(int, int, int);
-	~Color();
-	Color operator*(float const&);
-	Color operator+(Color const&);
-	void validate();
-	void writePPM(std::ofstream *);
-	bool isNull();
+    Color();
+    Color(const Color &);
+    Color(int, int, int);
+    ~Color();
+    Color operator*(float const &);
+    Color operator+(Color const &);
+    void validate();
+    void writePPM(std::ofstream *);
+    bool isNull();
 };
