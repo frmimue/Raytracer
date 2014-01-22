@@ -54,10 +54,14 @@
 		<Unit filename="src/Ray.cpp" />
 		<Unit filename="src/Ray.h" />
 		<Unit filename="src/Raytracer.cpp" />
+		<Unit filename="src/Renderer.cpp" />
+		<Unit filename="src/Renderer.h" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/Scene.h" />
 		<Unit filename="src/SphereObject.cpp" />
 		<Unit filename="src/SphereObject.h" />
+		<Unit filename="src/Trace.cpp" />
+		<Unit filename="src/Trace.h" />
 		<Unit filename="src/Vector3D.cpp" />
 		<Unit filename="src/Vector3D.h" />
 		<Extensions>

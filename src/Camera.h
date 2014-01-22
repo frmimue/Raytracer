@@ -6,10 +6,8 @@ class Camera {
 private:
     Vector3D position;
     Vector3D direction;
-    int width;
-    int height;
 public:
-    Camera(Vector3D, Vector3D, int, int);
+    Camera(Vector3D, Vector3D);
     ~Camera();
-    Ray computeRay(int, int);
+    Ray computeRay(int, int, int, int);
 };
