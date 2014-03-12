@@ -31,22 +31,19 @@ int main(int argv, char **argc) {
 	for (int i = 0; i < objects.size(); i++){
 		JsonGroup object = objects.at(i).Group();
 
-		std::string position = object.at("position").String();
-		std::string radius = object.at("radius").String();
-		std::string color = object.at("color").String();
-
 		if (object.at("type").String().compare("sphere") == 0){
 			scene->add(new SphereObject(Vector3D(object.at("position").Array().at(0).Float(), object.at("position").Array().at(1).Float(), object.at("position").Array().at(2).Float()),
 				object.at("radius").Float(), Color(object.at("color").Array().at(0).Integer(), object.at("color").Array().at(1).Integer(), object.at("color").Array().at(2).Integer())));
 		}
+		
+		if (object.at("type").String().compare("plane") == 0){
+			scene->add(new PlaneObject(Vector3D(object.at("position").Array().at(0).Float(), object.at("position").Array().at(1).Float(), object.at("position").Array().at(2).Float()),
+				Vector3D(object.at("normal").Array().at(0).Float(), object.at("normal").Array().at(1).Float(), object.at("normal").Array().at(2).Float()),
+				Color(object.at("color").Array().at(0).Array().at(0).Integer(), object.at("color").Array().at(0).Array().at(1).Integer(), object.at("color").Array().at(0).Array().at(2).Integer()),
+				Color(object.at("color").Array().at(1).Array().at(0).Integer(), object.at("color").Array().at(1).Array().at(1).Integer(), object.at("color").Array().at(1).Array().at(2).Integer())));
+		}
 	}
 
-    //SphereObject testSphere2 = SphereObject(Vector3D(1, 3, -0.3), 0.7, Color(255, 0, 0));
-    //SphereObject testSphere3 = SphereObject(Vector3D(-1, 2, 0), 0.7, Color(0, 0, 255));
-    PlaneObject *testPlane = new PlaneObject(Vector3D(0, 0, -1), Vector3D(0, 0, 1), Color(0, 255, 0), Color(255, 255, 255));
-    //scene->add(&testSphere2);
-    //scene->add(&testSphere3);
-    scene->add(testPlane);
     scene->add(new Light(Vector3D(2, 1, 1)));
     scene->add(new Light(Vector3D(-2, 1, 1)));
     std::cout << std::endl << "Creating test.ppm" << std::endl;
