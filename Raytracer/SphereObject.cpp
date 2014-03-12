@@ -2,7 +2,7 @@
 #include <math.h>
 
 
-SphereObject::SphereObject(Vector3D position, float radius, Color color) : position(position), radius(radius), color(color) {
+SphereObject::SphereObject(Vector3D position, float radius, Color color, float reflection) : position(position), radius(radius), color(color), reflection(reflection) {
 }
 
 SphereObject::~SphereObject() {
@@ -31,4 +31,8 @@ Vector3D SphereObject::getPosition() {
 
 Vector3D SphereObject::getNormal(Vector3D point) {
     return !(point - position);
+}
+
+float SphereObject::getReflection(){
+	return reflection;
 }

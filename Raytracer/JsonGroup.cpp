@@ -19,8 +19,10 @@ JsonGroup::JsonGroup(std::string json){
 		else
 			valueEnd = json.find_first_not_of("0123456789.", tmp + 1) - 1;
 
-		if (keyStart == 0 || keyEnd == 0 || valueEnd == -2)
+		if (keyStart == 0 || keyEnd == 0 || valueEnd == -2){
+			group.insert(std::pair<std::string, std::string>(json.substr(keyStart, keyEnd - keyStart + 1), json.substr(valueStart, json.size() - 1)));
 			break;
+		}
 
 		group.insert(std::pair<std::string, std::string>(json.substr(keyStart, keyEnd - keyStart + 1), json.substr(valueStart, valueEnd - valueStart + 1)));
 	}

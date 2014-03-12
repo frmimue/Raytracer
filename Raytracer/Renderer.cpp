@@ -17,8 +17,20 @@ void Renderer::render(Scene *scene, Camera *camera, int width, int height, Pixel
             if(trace.object == nullptr)
                 pixelBuffer->pixelBuffer[i * width + j] = Color(125, 150, 255) * pow(1 - ray.direction.z, 4);
             else {
-                Color color = scene->illumination(ray, trace);
-                color = color + trace.object->getColor(ray.position + ray.direction * trace.distance) * 0.2f;
+				Color color = scene->illumination(ray, trace);
+				if (trace.object->getReflection() > 0.0f){
+					Vector3D tmpPoint(ray.position + ray.direction*trace.distance);
+					Ray tmpRay(tmpPoint, ray.direction - trace.object->getNormal(tmpPoint) * 2.0f * (ray.direction * trace.object->getNormal(tmpPoint)));
+					Trace tmpTrace = scene->trace(tmpRay);
+					Color tmpColor;
+					if (tmpTrace.object == nullptr)
+						tmpColor = Color(125, 150, 255) * pow(1 - ray.direction.z, 4);
+					else
+						tmpColor = scene->illumination(tmpRay, tmpTrace);
+					color = color * (1.0f - trace.object->getReflection()) + tmpColor * trace.object->getReflection();
+				}
+                
+                color = color + trace.object->getColor(ray.position + ray.direction * trace.distance) * 0.0f;
                 pixelBuffer->pixelBuffer[i * width + j] = color;
             }
         }

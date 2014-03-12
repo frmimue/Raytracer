@@ -11,12 +11,14 @@ private:
     Vector3D normal;
     Color color1;
     Color color2;
+	float reflection;
 public:
-    PlaneObject(Vector3D, Vector3D, Color, Color);
+    PlaneObject(Vector3D, Vector3D, Color, Color, float);
     ~PlaneObject();
     float hitDistance(Ray);
     float hitDistance2(Ray);
     Color getColor(Vector3D point);
     Vector3D getPosition();
     Vector3D getNormal(Vector3D);
+	float getReflection();
 };

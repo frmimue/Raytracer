@@ -4,7 +4,7 @@
 
 #include "Vector3D.h"
 #include "Object.h"
-PlaneObject::PlaneObject(Vector3D position, Vector3D normal, Color color1, Color color2) : position(position), normal(normal), color1(color1), color2(color2) {
+PlaneObject::PlaneObject(Vector3D position, Vector3D normal, Color color1, Color color2, float reflection) : position(position), normal(normal), color1(color1), color2(color2), reflection(reflection) {
 }
 
 
@@ -32,4 +32,8 @@ Vector3D PlaneObject::getPosition() {
 
 Vector3D PlaneObject::getNormal(Vector3D) {
     return this->normal;
+}
+
+float PlaneObject::getReflection(){
+	return reflection;
 }
