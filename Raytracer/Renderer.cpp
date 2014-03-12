@@ -30,7 +30,7 @@ void Renderer::render(Scene *scene, Camera *camera, int width, int height, Pixel
 					color = color * (1.0f - trace.object->getReflection()) + tmpColor * trace.object->getReflection();
 				}
                 
-                color = color + trace.object->getColor(ray.position + ray.direction * trace.distance) * 0.0f;
+                //color = color + trace.object->getColor(ray.position + ray.direction * trace.distance) * 0.2f;
                 pixelBuffer->pixelBuffer[i * width + j] = color;
             }
         }

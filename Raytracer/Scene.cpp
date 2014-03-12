@@ -58,7 +58,7 @@ Color Scene::illumination(Ray &ray, Trace &trace){
                     + Color(255, 255, 255) * pow((((-ray.direction + lightRay.direction) * trace.object->getNormal(lightRay.position)) / ((-ray.direction + lightRay.direction).length())), n);
     }
 
-    return lightColor;
+	return lightColor + trace.object->getColor(ray.position + ray.direction * trace.distance) * 0.2f;
 }
 
 Color Scene::old(Ray &ray){
