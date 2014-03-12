@@ -14,5 +14,6 @@ public:
 	JsonArray(std::string);
 	~JsonArray();
 	JsonValue at(int);
+	int size();
 };
 
