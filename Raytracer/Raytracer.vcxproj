@@ -78,6 +78,10 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="JsonArray.cpp" />
+    <ClCompile Include="JsonGroup.cpp" />
+    <ClCompile Include="JsonParser.cpp" />
+    <ClCompile Include="JsonValue.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="PixelBuffer.cpp" />
     <ClCompile Include="PlaneObject.cpp" />
@@ -92,6 +96,10 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="JsonArray.h" />
+    <ClInclude Include="JsonGroup.h" />
+    <ClInclude Include="JsonParser.h" />
+    <ClInclude Include="JsonValue.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PixelBuffer.h" />
