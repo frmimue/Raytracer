@@ -26,6 +26,8 @@ Color::~Color() {
 Color Color::operator*(float const &f) {
     if(f > 1.0f)
         return Color(red, green, blue);
+	if (f < 0.0f)
+		return Color(0, 0, 0);
 
     return Color(red * f, green * f, blue * f);
 }
