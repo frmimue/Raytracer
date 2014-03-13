@@ -5,5 +5,6 @@
 	  	],
  "lights":	[	{"type":"point", "position":[2, 1, 1]},
 			{"type":"point", "position":[-2, 1, 1]}
-		]
+		],
+ "camera":		{"position":[0, -8, 1.5], "target":[0, 1, 1.5], "roll":12.5}
 }

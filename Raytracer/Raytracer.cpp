@@ -15,7 +15,6 @@
 int main(int argv, char **argc) {
 
 	int testX = 1920, testY = 1080;
-	Camera testCamera = Camera(Vector3D(0, -8, 1.5), Vector3D(0, 1, 1.5), 45.0f);
 	Scene *scene = new Scene();
 
 	std::ifstream sceneFile("scene.txt");
@@ -28,6 +27,9 @@ int main(int argv, char **argc) {
 	JsonGroup json(s);
 	JsonArray objects(json.at("objects").Array());
 	JsonArray lights(json.at("lights").Array());
+	JsonGroup camera(json.at("camera").Group());
+
+	Camera cam = Camera(Vector3D(camera.at("position").Array().at(0).Float(), camera.at("position").Array().at(1).Float(), camera.at("position").Array().at(2).Float()), Vector3D(camera.at("target").Array().at(0).Float(), camera.at("target").Array().at(1).Float(), camera.at("target").Array().at(2).Float()), camera.at("roll").Float());
 
 	for (int i = 0; i < objects.size(); i++){
 		JsonGroup object = objects.at(i).Group();
@@ -58,7 +60,7 @@ int main(int argv, char **argc) {
     PixelBuffer *testBuffer2 = new PixelBuffer(testX, testY);
 
     Renderer *renderer = new Renderer();
-    renderer->render(scene, &testCamera, testX, testY, testBuffer);
+    renderer->render(scene, &cam, testX, testY, testBuffer);
 
     testBuffer->savePPM("test.ppm");
     return 0;
