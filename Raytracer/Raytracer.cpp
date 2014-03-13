@@ -15,7 +15,7 @@
 int main(int argv, char **argc) {
 
 	int testX = 1920, testY = 1080;
-	Camera testCamera = Camera(Vector3D(0, -8, 1.5), Vector3D(0, 1, 0));
+	Camera testCamera = Camera(Vector3D(0, -8, 1.5), Vector3D(0, 1, 1.5), 45.0f);
 	Scene *scene = new Scene();
 
 	std::ifstream sceneFile("scene.txt");

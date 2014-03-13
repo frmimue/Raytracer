@@ -7,6 +7,7 @@ public:
     float z;
 public:
     Vector3D(float, float, float);
+	Vector3D();
     ~Vector3D();
     Vector3D operator+(Vector3D const &);
     Vector3D operator-(Vector3D const &);
