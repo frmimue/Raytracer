@@ -3,6 +3,7 @@
 #include <cmath>
 
 Camera::Camera(Vector3D position, Vector3D target, float roll) : position(position){
+	roll = roll * 3.14159265358979f / 180.0f;
 	up = Vector3D(sin(-roll), 0, -cos(-roll));
 	direction = !(target - position);
 	right = !(up % direction);
