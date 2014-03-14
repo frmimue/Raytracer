@@ -15,6 +15,6 @@ public:
     Color operator*(float const &);
     Color operator+(Color const &);
     void validate();
-    void writePPM(std::ofstream *);
+	void writePPM(FILE *);
     bool isNull();
 };

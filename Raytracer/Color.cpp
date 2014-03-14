@@ -51,8 +51,10 @@ void Color::validate() {
 }
 
 
-void Color::writePPM(std::ofstream *stream) {
-    *stream << red << " " << green << " " << blue << " ";
+void Color::writePPM(FILE *pFile) {
+	char buffer[16];
+	int count = sprintf(buffer, "%d %d %d ", red, green, blue);
+	fwrite(buffer, sizeof(char), count, pFile);
 }
 
 bool Color::isNull() {

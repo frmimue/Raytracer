@@ -15,13 +15,17 @@ PixelBuffer::~PixelBuffer() {
 
 
 void PixelBuffer::savePPM(std::string file) {
-    std::ofstream data;
-    data.open(file);
-    data << "P3" << " " << xSize << " " << ySize << " " << "255" << " ";
+	FILE *pFile = fopen(file.c_str(), "wb");
 
-    for(int i = 0; i < xSize * ySize; i++) {
-        pixelBuffer[i].writePPM(&data);
-    }
+	char header[255];
 
-    data.close();
+	int count = sprintf(header, "P3 %d %d 255 ", xSize, ySize);
+
+	fwrite(header, sizeof(char), count, pFile);
+
+	for (int i = 0; i < xSize * ySize; i++) {
+		pixelBuffer[i].writePPM(pFile);
+	}
+
+	fclose(pFile);
 }
