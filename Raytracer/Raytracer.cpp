@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 
 #include "PixelBuffer.h"
 #include "SphereObject.h"
@@ -14,7 +13,6 @@
 
 int main(int argv, char **argc) {
 
-	int testX = 1920, testY = 1080;
 	Scene *scene = new Scene();
 
 	std::ifstream sceneFile("scene.txt");
@@ -55,13 +53,8 @@ int main(int argv, char **argc) {
 		}
 	}
 
-    std::cout << std::endl << "Creating test.ppm" << std::endl;
-    PixelBuffer *testBuffer = new PixelBuffer(testX, testY);
-    PixelBuffer *testBuffer2 = new PixelBuffer(testX, testY);
-
     Renderer *renderer = new Renderer();
-    renderer->render(scene, &cam, testX, testY, testBuffer);
-
-    testBuffer->savePPM("test.ppm");
+	PixelBuffer *buffer = renderer->render(scene, &cam, camera.at("resolution").Array().at(0).Integer(), camera.at("resolution").Array().at(1).Integer());
+	buffer->savePPM("test.ppm");
     return 0;
 }
