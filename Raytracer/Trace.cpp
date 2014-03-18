@@ -1,6 +1,6 @@
 #include "Trace.h"
 
-Trace::Trace(Object *object, float distance) : object(object), distance(distance) {
+Trace::Trace(Object *object, float distance, bool inside) : object(object), distance(distance), inside(inside) {
     //ctor
 }
 

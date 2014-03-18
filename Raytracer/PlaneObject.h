@@ -12,13 +12,17 @@ private:
     Color color1;
     Color color2;
 	float reflection;
+	float refraction;
+	float ior;
 public:
-    PlaneObject(Vector3D, Vector3D, Color, Color, float);
+    PlaneObject(Vector3D, Vector3D, Color, Color, float, float, float);
     ~PlaneObject();
-    float hitDistance(Ray);
+	float hitDistance(Ray, bool &);
     float hitDistance2(Ray);
     Color getColor(Vector3D point);
     Vector3D getPosition();
     Vector3D getNormal(Vector3D);
 	float getReflection();
+	float getRefraction();
+	float getIOR(){ return ior; }
 };

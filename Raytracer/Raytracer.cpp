@@ -34,14 +34,14 @@ int main(int argv, char **argc) {
 
 		if (object.at("type").String().compare("sphere") == 0){
 			scene->add(new SphereObject(Vector3D(object.at("position").Array().at(0).Float(), object.at("position").Array().at(1).Float(), object.at("position").Array().at(2).Float()),
-				object.at("radius").Float(), Color(object.at("color").Array().at(0).Integer(), object.at("color").Array().at(1).Integer(), object.at("color").Array().at(2).Integer()), object.at("reflection").Float()));
+				object.at("radius").Float(), Color(object.at("color").Array().at(0).Integer(), object.at("color").Array().at(1).Integer(), object.at("color").Array().at(2).Integer()), object.at("reflection").Float(), object.at("refraction").Float(), object.at("ior").Float()));
 		}
 
 		if (object.at("type").String().compare("plane") == 0){
 			scene->add(new PlaneObject(Vector3D(object.at("position").Array().at(0).Float(), object.at("position").Array().at(1).Float(), object.at("position").Array().at(2).Float()),
 				Vector3D(object.at("normal").Array().at(0).Float(), object.at("normal").Array().at(1).Float(), object.at("normal").Array().at(2).Float()),
 				Color(object.at("color").Array().at(0).Array().at(0).Integer(), object.at("color").Array().at(0).Array().at(1).Integer(), object.at("color").Array().at(0).Array().at(2).Integer()),
-				Color(object.at("color").Array().at(1).Array().at(0).Integer(), object.at("color").Array().at(1).Array().at(1).Integer(), object.at("color").Array().at(1).Array().at(2).Integer()), object.at("reflection").Float()));
+				Color(object.at("color").Array().at(1).Array().at(0).Integer(), object.at("color").Array().at(1).Array().at(1).Integer(), object.at("color").Array().at(1).Array().at(2).Integer()), object.at("reflection").Float(), object.at("refraction").Float(), object.at("ior").Float()));
 		}
 	}
 

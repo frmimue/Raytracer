@@ -4,7 +4,7 @@
 
 #include "Vector3D.h"
 #include "Object.h"
-PlaneObject::PlaneObject(Vector3D position, Vector3D normal, Color color1, Color color2, float reflection) : position(position), normal(normal), color1(color1), color2(color2), reflection(reflection) {
+PlaneObject::PlaneObject(Vector3D position, Vector3D normal, Color color1, Color color2, float reflection, float refraction, float ior) : position(position), normal(normal), color1(color1), color2(color2), reflection(reflection), refraction(refraction), ior(ior) {
 }
 
 
@@ -12,7 +12,7 @@ PlaneObject::~PlaneObject() {
 }
 
 
-float PlaneObject::hitDistance(Ray ray) {
+float PlaneObject::hitDistance(Ray ray, bool &) {
     return ((position - ray.position) * normal) / (ray.direction * normal);
 }
 
@@ -36,4 +36,8 @@ Vector3D PlaneObject::getNormal(Vector3D) {
 
 float PlaneObject::getReflection(){
 	return reflection;
+}
+
+float PlaneObject::getRefraction(){
+	return refraction;
 }
