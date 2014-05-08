@@ -18,6 +18,6 @@ public:
     void add(Object *);
     void add(Light *);
     Trace trace(Ray);
-    Color illumination(Ray &, Trace &, Color &);
+	void illumination(Ray &, Trace &, Color &, Color &, Color &);
     Color old(Ray &);
 };

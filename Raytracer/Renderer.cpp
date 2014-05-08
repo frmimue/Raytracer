@@ -14,6 +14,7 @@ Renderer::~Renderer() {
 Color Renderer::trace(Ray &ray, Scene *scene, int maxDepth, int depth){
 	Trace trace = scene->trace(ray);
 
+	Color ambient;
 	Color specular;
 	Color diffuse;
 	Color reflection;
@@ -26,7 +27,7 @@ Color Renderer::trace(Ray &ray, Scene *scene, int maxDepth, int depth){
 		//return Color(125, 150, 255) * pow(1 - ray.direction.z, 4);
 		return Color(0, 0, 0);
 
-	diffuse = scene->illumination(ray, trace, specular);
+	scene->illumination(ray, trace, ambient, diffuse, specular);
 
 	Vector3D point(ray.position + ray.direction*trace.distance);
 	
@@ -88,7 +89,7 @@ Color Renderer::trace(Ray &ray, Scene *scene, int maxDepth, int depth){
 			refraction = this->trace(rfRay, scene, maxDepth, depth + 1, b);
 		}
 	}*/
-	return diffuse * (1 - trace.object->getReflection() - trace.object->getRefraction()) + specular + reflection * trace.object->getReflection() + refraction * trace.object->getRefraction();
+	return ambient + diffuse * (1 - trace.object->getReflection() - trace.object->getRefraction()) + specular + reflection * trace.object->getReflection() + refraction * trace.object->getRefraction();
 	
 }
 

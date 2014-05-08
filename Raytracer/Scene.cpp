@@ -27,9 +27,11 @@ Trace Scene::trace(Ray ray) {
     return Trace(pObject, minDistance, inside);
 }
 
-Color Scene::illumination(Ray &ray, Trace &trace, Color &specular){
+void Scene::illumination(Ray &ray, Trace &trace, Color& ambient, Color& diffuse, Color &specular){
 
-    Color lightColor = Color(0, 0, 0);
+
+	ambient = Color(0, 0, 0);
+	diffuse = Color(0, 0, 0);
 	specular = Color(0, 0, 0);
 
 	Vector3D hitPoint(ray.position + ray.direction * trace.distance);
@@ -44,13 +46,10 @@ Color Scene::illumination(Ray &ray, Trace &trace, Color &specular){
 
 
         float n = 128.0f;
-		specular = Color(255, 255, 255) * pow((((-ray.direction + -lightRay.direction) * trace.object->getNormal(hitPoint)) / ((-ray.direction + -lightRay.direction).length())), n);
+		specular = specular + Color(255, 255, 255) * pow((((-ray.direction + -lightRay.direction) * trace.object->getNormal(hitPoint)) / ((-ray.direction + -lightRay.direction).length())), n);
 
-        lightColor = lightColor
-                    + trace.object->getColor(hitPoint) * ((-lightRay.direction * trace.object->getNormal(hitPoint)));
+        diffuse = diffuse + trace.object->getColor(hitPoint) * ((-lightRay.direction * trace.object->getNormal(hitPoint)));
     }
-
-	return lightColor + trace.object->getColor(ray.position + ray.direction * trace.distance) * 0.2f;
 }
 
 
