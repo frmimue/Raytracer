@@ -240,6 +240,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SphereObject.cpp" />
     <ClCompile Include="Trace.cpp" />
+    <ClCompile Include="TriangleObject.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +259,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SphereObject.h" />
     <ClInclude Include="Trace.h" />
+    <ClInclude Include="TriangleObject.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
