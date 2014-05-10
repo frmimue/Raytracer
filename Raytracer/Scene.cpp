@@ -35,7 +35,6 @@ void Scene::illumination(Ray &ray, Trace &trace, Color& ambient, Color& diffuse,
 	specular = Color(0, 0, 0);
 
 	Vector3D hitPoint(ray.position + ray.direction * trace.distance);
-
     bool hit = false;
 
     for(Light *light : lights) {
@@ -45,8 +44,8 @@ void Scene::illumination(Ray &ray, Trace &trace, Color& ambient, Color& diffuse,
 		if (lightTrace.object != trace.object)
 			continue;
 
-        float n = 128.0f;
 
+        float n = 128.0f;
 		specular = specular + Color(255, 255, 255) * pow((((-ray.direction + -lightRay.direction) * trace.object->getNormal(hitPoint)) / ((-ray.direction + -lightRay.direction).length())), n);
 
         diffuse = diffuse + trace.object->getColor(hitPoint) * ((-lightRay.direction * trace.object->getNormal(hitPoint)));

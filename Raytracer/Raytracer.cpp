@@ -5,7 +5,6 @@
 #include "Camera.h"
 #include "Scene.h"
 #include "PlaneObject.h"
-#include "TriangleObject.h"
 #include "Renderer.h"
 
 #include "JsonArray.h"
@@ -43,13 +42,6 @@ int main(int argv, char **argc) {
 				Vector3D(object.at("normal").Array().at(0).Float(), object.at("normal").Array().at(1).Float(), object.at("normal").Array().at(2).Float()),
 				Color(object.at("color").Array().at(0).Array().at(0).Integer(), object.at("color").Array().at(0).Array().at(1).Integer(), object.at("color").Array().at(0).Array().at(2).Integer()),
 				Color(object.at("color").Array().at(1).Array().at(0).Integer(), object.at("color").Array().at(1).Array().at(1).Integer(), object.at("color").Array().at(1).Array().at(2).Integer()), object.at("reflection").Float(), object.at("refraction").Float(), object.at("ior").Float()));
-		}
-
-		if (object.at("type").String().compare("triangle") == 0){
-			scene->add(new TriangleObject(Vector3D(object.at("vertices").Array().at(0).Array().at(0).Integer(), object.at("vertices").Array().at(0).Array().at(1).Integer(), object.at("vertices").Array().at(0).Array().at(2).Integer()),
-				Vector3D(object.at("vertices").Array().at(1).Array().at(0).Integer(), object.at("vertices").Array().at(1).Array().at(1).Integer(), object.at("vertices").Array().at(1).Array().at(2).Integer()),
-				Vector3D(object.at("vertices").Array().at(2).Array().at(0).Integer(), object.at("vertices").Array().at(2).Array().at(1).Integer(), object.at("vertices").Array().at(2).Array().at(2).Integer()),
-				Color(object.at("color").Array().at(0).Integer(), object.at("color").Array().at(1).Integer(), object.at("color").Array().at(2).Integer()), object.at("reflection").Float(), object.at("refraction").Float(), object.at("ior").Float()));
 		}
 	}
 

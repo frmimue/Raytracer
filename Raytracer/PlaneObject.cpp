@@ -16,6 +16,10 @@ float PlaneObject::hitDistance(Ray ray, bool &) {
     return ((position - ray.position) * normal) / (ray.direction * normal);
 }
 
+float PlaneObject::hitDistance2(Ray ray) {
+    return ((position - ray.position) * normal) / (ray.direction * normal);
+}
+
 
 Color PlaneObject::getColor(Vector3D point) {
     return ((int)(ceil(point.x) + ceil(point.y)) & 1 ? color1 : color2);
