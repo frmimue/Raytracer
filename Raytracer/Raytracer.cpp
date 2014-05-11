@@ -69,6 +69,7 @@ int main(int argv, char **argc) {
 
     Renderer *renderer = new Renderer();
 	PixelBuffer *buffer = renderer->render(scene, &cam, camera.at("resolution").Array().at(0).Integer(), camera.at("resolution").Array().at(1).Integer(), camera.at("raydepth").Integer());
-	buffer->savePPM("test.ppm");
+	//buffer->savePPM("test.ppm");
+	buffer->saveBMP("image.bmp");
     return 0;
 }

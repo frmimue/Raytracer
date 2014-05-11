@@ -15,6 +15,7 @@ public:
     PixelBuffer(int, int);
     ~PixelBuffer();
     void savePPM(std::string);
+	void saveBMP(std::string);
     void randomize();
     void set(int, int, Color);
 };

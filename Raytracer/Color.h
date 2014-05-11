@@ -16,5 +16,6 @@ public:
     Color operator+(Color const &);
     void validate();
 	void writePPM(FILE *);
+	void writeBMP(FILE *);
     bool isNull();
 };

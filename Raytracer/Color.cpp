@@ -57,6 +57,16 @@ void Color::writePPM(FILE *pFile) {
 	fwrite(buffer, sizeof(char), count, pFile);
 }
 
+void Color::writeBMP(FILE *pFile) {
+	char buffer[3] = { 0 };
+
+	buffer[0] = blue;
+	buffer[1] = green;
+	buffer[2] = red;
+
+	fwrite(buffer, sizeof(char), 3, pFile);
+}
+
 bool Color::isNull() {
     if(red < 5 && green < 5 && blue < 5)
         return true;
