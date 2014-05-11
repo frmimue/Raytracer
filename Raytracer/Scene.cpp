@@ -38,7 +38,7 @@ void Scene::illumination(Ray &ray, Trace &trace, Color& ambient, Color& diffuse,
     bool hit = false;
 
     for(Light *light : lights) {
-		Ray lightRay(light->position, !(hitPoint - light->position));
+		Ray lightRay = light->lightRay(hitPoint);
 
 		Trace lightTrace = this->trace(lightRay);
 		if (lightTrace.object != trace.object)

@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Vector3D.h"
+#include "Ray.h"
 
 class Light {
 public:
-    Vector3D position;
-    Light(Vector3D);
-    ~Light();
+	Light(){};
+	virtual ~Light(){};
+	virtual Ray lightRay(Vector3D) = 0;
 };

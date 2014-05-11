@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Light.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PixelBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -61,6 +58,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JsonValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -111,6 +117,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="JsonGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

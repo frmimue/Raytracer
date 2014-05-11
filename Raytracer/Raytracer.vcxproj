@@ -227,24 +227,27 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="DirectionLight.cpp" />
     <ClCompile Include="JsonArray.cpp" />
     <ClCompile Include="JsonGroup.cpp" />
     <ClCompile Include="JsonParser.cpp" />
     <ClCompile Include="JsonValue.cpp" />
-    <ClCompile Include="Light.cpp" />
     <ClCompile Include="PixelBuffer.cpp" />
     <ClCompile Include="PlaneObject.cpp" />
+    <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Raytracer.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SphereObject.cpp" />
     <ClCompile Include="Trace.cpp" />
+    <ClCompile Include="TriangleObject.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="DirectionLight.h" />
     <ClInclude Include="JsonArray.h" />
     <ClInclude Include="JsonGroup.h" />
     <ClInclude Include="JsonParser.h" />
@@ -253,11 +256,13 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="PixelBuffer.h" />
     <ClInclude Include="PlaneObject.h" />
+    <ClInclude Include="PointLight.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SphereObject.h" />
     <ClInclude Include="Trace.h" />
+    <ClInclude Include="TriangleObject.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

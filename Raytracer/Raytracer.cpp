@@ -6,6 +6,9 @@
 #include "Scene.h"
 #include "PlaneObject.h"
 #include "Renderer.h"
+#include "PointLight.h"
+#include "DirectionLight.h"
+#include "TriangleObject.h"
 
 #include "JsonArray.h"
 #include "JsonGroup.h"
@@ -43,13 +46,24 @@ int main(int argv, char **argc) {
 				Color(object.at("color").Array().at(0).Array().at(0).Integer(), object.at("color").Array().at(0).Array().at(1).Integer(), object.at("color").Array().at(0).Array().at(2).Integer()),
 				Color(object.at("color").Array().at(1).Array().at(0).Integer(), object.at("color").Array().at(1).Array().at(1).Integer(), object.at("color").Array().at(1).Array().at(2).Integer()), object.at("reflection").Float(), object.at("refraction").Float(), object.at("ior").Float()));
 		}
+
+		if (object.at("type").String().compare("triangle") == 0){
+			scene->add(new TriangleObject(Vector3D(object.at("vertices").Array().at(0).Array().at(0).Integer(), object.at("vertices").Array().at(0).Array().at(1).Integer(), object.at("vertices").Array().at(0).Array().at(2).Integer()),
+				Vector3D(object.at("vertices").Array().at(1).Array().at(0).Integer(), object.at("vertices").Array().at(1).Array().at(1).Integer(), object.at("vertices").Array().at(1).Array().at(2).Integer()),
+				Vector3D(object.at("vertices").Array().at(2).Array().at(0).Integer(), object.at("vertices").Array().at(2).Array().at(1).Integer(), object.at("vertices").Array().at(2).Array().at(2).Integer()),
+				Color(object.at("color").Array().at(0).Integer(), object.at("color").Array().at(1).Integer(), object.at("color").Array().at(2).Integer()), object.at("reflection").Float(), object.at("refraction").Float(), object.at("ior").Float()));
+		}
 	}
 
 	for (int i = 0; i < lights.size(); i++){
 		JsonGroup light = lights.at(i).Group();
 
 		if (light.at("type").String().compare("point") == 0){
-			scene->add(new Light(Vector3D(light.at("position").Array().at(0).Float(), light.at("position").Array().at(1).Float(), light.at("position").Array().at(2).Float())));
+			scene->add(new PointLight(Vector3D(light.at("position").Array().at(0).Float(), light.at("position").Array().at(1).Float(), light.at("position").Array().at(2).Float())));
+		}
+
+		if (light.at("type").String().compare("direction") == 0){
+			scene->add(new DirectionLight(Vector3D(light.at("direction").Array().at(0).Float(), light.at("direction").Array().at(1).Float(), light.at("direction").Array().at(2).Float())));
 		}
 	}
 
